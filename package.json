@@ -1,0 +1,20 @@
+{
+  "name": "vscode-explain-selection",
+  "displayName": "Explain Selection",
+  "description": "Send file path with line range to terminal",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.copyFileLineRange",
+        "title": "Copy File Line Range"
+      }
+    ]
+  }
+}
