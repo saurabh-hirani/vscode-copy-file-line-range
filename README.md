@@ -65,33 +65,6 @@ Combine with terminal commands to send formatted text:
 
 This sends `explain /path/to/file:L10-L25` to your terminal, useful for AI assistants or code review tools.
 
-## Example Keybindings
-
-```json
-[
-    {
-        "key": "ctrl+i e",
-        "command": "runCommands",
-        "args": {
-            "commands": [
-                "extension.copyFileLineRange",
-                {
-                    "command": "workbench.action.terminal.sendSequence",
-                    "args": {
-                        "text": "explain "
-                    }
-                },
-                "workbench.action.terminal.paste"
-            ]
-        }
-    },
-    {
-        "key": "ctrl+i f",
-        "command": "extension.copyFileLineRange"
-    }
-]
-```
-
 ## Configuration
 
 The extension uses the command `extension.copyFileLineRange`. You can bind it to any key combination in your `keybindings.json`.
