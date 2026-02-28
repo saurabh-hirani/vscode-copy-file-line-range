@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 
 function activate(context) {
-    let disposable = vscode.commands.registerCommand('extension.copyFileLineRange', function () {
+    let copyCommand = vscode.commands.registerCommand('extension.copyFileLineRange', function () {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
             return;
@@ -17,7 +17,7 @@ function activate(context) {
         vscode.env.clipboard.writeText(text);
     });
     
-    context.subscriptions.push(disposable);
+    context.subscriptions.push(copyCommand);
 }
 
 function deactivate() {}
