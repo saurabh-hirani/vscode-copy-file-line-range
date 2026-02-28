@@ -27,22 +27,22 @@ cp -r vscode-copy-file-line-range ~/.vscode/extensions/
 
 ## Usage
 
-### Basic Usage
+### Basic Usage - Copy to Clipboard
 
 Add this keybinding to your `keybindings.json`:
 
 ```json
 {
-    "key": "ctrl+shift+c",
+    "key": "ctrl+i f",
     "command": "extension.copyFileLineRange"
 }
 ```
 
-Select lines and press the keybinding. The clipboard will contain: `/path/to/file:L10-L25`
+Select lines and press `Ctrl+I F`. The clipboard will contain: `/path/to/file:L10-L25`
 
-### Advanced Usage - Send to Terminal
+### Advanced Usage - Send to Terminal with Command
 
-Combine with terminal commands:
+Combine with terminal commands to send formatted text:
 
 ```json
 {
@@ -63,7 +63,34 @@ Combine with terminal commands:
 }
 ```
 
-This sends `explain /path/to/file:L10-L25` to your terminal.
+This sends `explain /path/to/file:L10-L25` to your terminal, useful for AI assistants or code review tools.
+
+## Example Keybindings
+
+```json
+[
+    {
+        "key": "ctrl+i e",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "extension.copyFileLineRange",
+                {
+                    "command": "workbench.action.terminal.sendSequence",
+                    "args": {
+                        "text": "explain "
+                    }
+                },
+                "workbench.action.terminal.paste"
+            ]
+        }
+    },
+    {
+        "key": "ctrl+i f",
+        "command": "extension.copyFileLineRange"
+    }
+]
+```
 
 ## Configuration
 
